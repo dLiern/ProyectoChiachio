@@ -1,0 +1,71 @@
+﻿<mah:MetroWindow x:Class="ProyectoTienda.Frontend.Dialogos.DialogoEdiarPuntos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoTienda.Frontend.Dialogos"
+        mc:Ignorable="d"
+        Title="DialogoEdiarPuntos" Height="300" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Border Background="#555">
+            <TextBlock Text="GESTIÓN PUNTOS" Foreground="White" FontSize="24" Margin="10" 
+                       HorizontalAlignment="Center" />
+        </Border>
+        <GroupBox Header="DATOS MONETARIOS" Grid.Row="2" Margin="25">
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!--COLUMNA IZQUIERDA-->
+                <TextBox mat:HintAssist.Hint="Puntos" x:Name="txtPuntos" 
+                         Grid.Row="2" Text="{Binding clienteNuevo.puntos, 
+                         NotifyOnValidationError=True,ValidatesOnDataErrors=True,
+                         UpdateSourceTrigger=PropertyChanged}"
+                         FontWeight="Bold" Margin="30,20,0,0" FontSize="14"/>
+                         
+
+                <!--COLUMNA DERECHA-->
+                <TextBox mat:HintAssist.Hint="Dinero" x:Name="txtDinero" 
+                         Grid.Row="2" Grid.Column="1" 
+                         Text="{Binding clienteNuevo.dinero, 
+                         NotifyOnValidationError=True,ValidatesOnDataErrors=True,
+                         UpdateSourceTrigger=PropertyChanged}"
+                         FontWeight="Bold" Margin="30,20,30,0" FontSize="14" MaxLength="45" 
+                         Width="380"/>
+                
+
+            </Grid>
+        </GroupBox>
+        <Button x:Name="Guardar" Grid.Row="4" Content="Guardar" 
+                Click="Guardar_Click"
+                HorizontalAlignment="Right" Width="100"
+                Margin="30,20,150,20" IsDefault="True" 
+                Style="{StaticResource MaterialDesignOutlinedButton}"/>
+        <Button x:Name="btnCancelar" Grid.Row="4" Content="Cancelar" 
+                Click="btnCancelar_Click"
+                HorizontalAlignment="Right" Width="100" 
+                Margin="0,20,30,20" IsCancel="True" />
+    </Grid>
+</mah:MetroWindow>
